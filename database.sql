@@ -1,4 +1,10 @@
-
+SELECT *
+FROM X
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM Y
+  WHERE X.column_name = Y.column_name
+);
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";

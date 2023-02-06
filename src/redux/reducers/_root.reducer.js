@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
+import unusedwordsReducer from './unusedwords.reducer';
 import user from './user.reducer';
 import wordsReducer from './words.reducer';
 
@@ -12,7 +13,10 @@ import wordsReducer from './words.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  wordsReducer// will have an id and username if someone is logged in
+  wordsReducer,
+  unusedwordsReducer,
+  c
+  // will have an id and username if someone is logged in
 });
 
 export default rootReducer;

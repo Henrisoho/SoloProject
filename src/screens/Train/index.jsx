@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
-import RandomThree from './component';
+import WordGen from './component';
 
-export default function ShelfPage() {
+export default function Train() {
   const dispatch = useDispatch();
   const store = useReduxStore();
-  const words = useSelector(store => store.wordReducer)
-console.log(words)
+  const words = useSelector(store => store.wordsReducer)
+  console.log(words)
   useEffect(() => {
     dispatch({ type: 'FETCH_WORDS' });
+    dispatch({ type: 'FETCH_UNUSEDWORDS' });
   }, [dispatch]);
 
   return (
-    <div className="container">
       <div>
-        {words.map((word) =>{
+         {words.map((word) =>{
           return(
-            <ul key={word.id} style ={{listStyleType: 'none'}}><RandomThree word={word}/></ul>
+            <WordGen key={word.id} word={word}/>
           )
         })}
+        
       </div>
-    </div>
   );
 }
