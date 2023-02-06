@@ -19,8 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Train from '../../screens/Train/index';
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -66,6 +68,13 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/train"
+          >
+            <Train />
           </ProtectedRoute>
 
           <Route
