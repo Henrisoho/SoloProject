@@ -15,7 +15,6 @@ const rootReducer = combineReducers({
   user,
   wordsReducer,
   unusedwordsReducer,
-  c
   // will have an id and username if someone is logged in
 });
 

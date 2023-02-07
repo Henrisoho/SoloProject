@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { combineReducers } from 'redux';
 
 const words = useSelector(store => store.wordsReducer)
 const unusedWords = useSelector(store => store.unusedwordsReducer)
@@ -32,8 +33,10 @@ function createCard(arr) {
 let wordToShuffleArray = rootAndSplice(words, unusedWords);
 console.log(wordToShuffleArray)
 
-const card = (arr) => {
+const cardsReducer = (arr) => {
 return cardWords = createCard(arr)
 };
 
-export default card()
+export default combineReducers({
+  cardsReducer
+});
