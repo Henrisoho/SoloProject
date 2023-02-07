@@ -8,7 +8,7 @@ function* fetchWords() {
       withCredentials: true,
     };
 
-    const response = yield axios.get('/api/words', config);
+    const response = yield axios.get('/api/unusedwords', config);
     
 
     yield put({ type: 'SET_WORDS', payload: response.data });
