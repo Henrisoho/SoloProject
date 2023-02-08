@@ -5,56 +5,62 @@ import WordGen from './component';
 import TransWord from './transcomp';
 
 export default function Train() {
-  const dispatch = useDispatch();
-  const store = useReduxStore();
-  const words = useSelector(store => store.wordsReducer)
-
-  useEffect(() => {
-    dispatch({ 
-        type: 'TRANSLATE',
-        payload: { 
-            word: correctWord.word
-        }
-     });
-    dispatch({ type: 'FETCH_WORDS' });
-    dispatch({ type: 'FETCH_UNUSEDWORDS' });
-      
+const dispatch = useDispatch();
+    useEffect(() => {
+    dispatch({ type: 'FETCH_WORDS' });  
   }, [dispatch]);
 
-function filter(x) {
-    let transWord = {}
-  if (x != undefined){
-  transWord = x
+
+  const store = useReduxStore();
+  const words = useSelector(store => store.translateReducer)
+  if(words != undefined){
+console.log(words)
   }
-  return transWord;
-}
 
-let correctWord = filter(words.correctWord)
+if(words != undefined){
+const answer = words.Words[0]
+console.log(answer)
 
-function shuffleArray(array) {
-  if (array != undefined){
+  function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
-  }
   return array;
 }
 
-const wordsArr = shuffleArray(words.testArray)
+const wordsArr = shuffleArray(words.Words)
 
-
+  console.log(words.Words)
   return (
       <div>
         <div>
-          <TransWord answer={correctWord}/>
+          <TransWord/>
         </div>
          {wordsArr?.map((word) =>{
           return(
-            <WordGen key={word.id} word={word} answer={correctWord}/>
+            <WordGen key={word.id} word={word} answer={answer}/>
           )
         })}
         
       </div>
   );
+}else{
+    return(
+        <h1>Loading</h1>
+    )
 }
+}
+
+
+// function shuffleArray(array) {
+//   if (array != undefined){
+//   for (let i = array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
+//   }
+//   return array;
+// }
+
+// const wordsArr = shuffleArray(filteredWords)

@@ -9,34 +9,16 @@ const displayWord = useSelector(store => store.translateReducer)
   const words = useSelector(store => store.wordsReducer)
 console.log('response from the set word reducer', displayWord)
 
-function filter(x) {
-    let transWord = null
-  if (x != undefined){
-  transWord = x
-  }
-  return transWord;
-}
-
-
-let filteredWord = filter(words.correctWord.word)
-
-
-console.log(filteredWord)
- useEffect(() => {
-  dispatch({
-        type: 'TRANSLATE',
-        payload: {
-          word: 'pot',
-        }
-      })
-  }, []);
-
-
-
+if(displayWord != undefined){
     return(
         <div>
-            <h1>{displayWord}</h1>
+            <h1>{displayWord.transWord}</h1>
         </div>
     )
+} else{
+    return(
+        <h1>Loading</h1>
+    )
+}
 }
 

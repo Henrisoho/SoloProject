@@ -2,29 +2,10 @@
  
  
 const wordsReducer = (state = [], action) => {
-
-  function wordsScramble(arr){
-  let tenWords = []
-   if (arr != undefined){
-  for(let i = 0; i < 4; i++){
-  tenWords.push(arr[Math.floor(Math.random()*arr.length)])
-  }
-   }
-
-  return tenWords
-}
-
-let newArr = wordsScramble(action.payload)
-
-const testArray = [...newArr]
-
-const correctWord = testArray[0]
-
-
-
+ console.log('words reducer', action.payload)
   switch (action.type) {
     case 'SET_WORDS':
-      return {testArray, correctWord};
+      return action.payload;
     case 'UNSET_WORDS':
       return [];
     default:

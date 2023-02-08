@@ -36,7 +36,7 @@ function Nav() {
                Movie
             </Link>
 
-            <Link className="navLink" to="/movie">
+            <Link className="navLink" to="/complete">
                Complete
             </Link>
              <Link className="navLink" to="/settings">

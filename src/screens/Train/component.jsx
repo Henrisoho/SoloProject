@@ -6,7 +6,8 @@ import Box from '@mui/material/Box';
 
 export default function WordGen({ word, answer }) {
     const [isCorrect, setIsCorrect] = useState(true);
-
+        console.log(word)
+        console.log(answer)
     const handleCorrect = () => {
         if (word.id === answer.id) {
             setIsCorrect(false);

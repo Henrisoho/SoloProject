@@ -11,7 +11,7 @@ function* fetchWords() {
     const response = yield axios.get('/api/unusedwords', config);
     
 
-    yield put({ type: 'SET_WORDS', payload: response.data });
+    yield put({ type: 'TRANSLATE', payload: response.data });
   } catch (error) {
     console.log('WORDS get request failed', error);
   }

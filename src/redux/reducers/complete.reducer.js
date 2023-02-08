@@ -1,9 +1,9 @@
-const translateReducer = (state = null, action) => {
+const completeReducer = (state = null, action) => {
   console.log(action.payload)
   switch (action.type) {
-    case 'SET_TRANSLATE':
+    case 'SET_COMPLETE':
       return action.payload;
-    case 'UNSET_TRANSLATE':
+    case 'UNSET_COMPLETE':
       return [];
     default:
       return state;
@@ -11,4 +11,4 @@ const translateReducer = (state = null, action) => {
   }
 };
 
-export default translateReducer;
+export default completeReducer;

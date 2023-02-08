@@ -12,13 +12,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('i go this')
   pool
     .query(`
-SELECT *
-FROM "word" X
-WHERE NOT EXISTS (
-  SELECT 1
-  FROM "words_finished" Y
-  WHERE X.id = Y.word_id
-);` 
+  WITH cte AS (
+  SELECT DISTINCT ON (x.id) x.*
+  FROM word x
+  LEFT JOIN words_finished y ON x.id = y.word_id
+  WHERE y.word_id IS NULL
+  ORDER BY x.id
+)
+SELECT * FROM cte
+ORDER BY RANDOM()
+LIMIT 4;
+` 
 )
     .then((results) => res.send(results.rows))
     .catch((error) => {
