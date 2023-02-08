@@ -31,6 +31,7 @@ export default function WordGen({ word, answer }) {
                     <h1 key={word.id}>{word.word}</h1>
                 </div>
             ) : (
+                <div>
                 <div key={word.id} onClick={handleCorrect} style={{
                     margin: 10,
                     alignItems: 'center',
@@ -41,6 +42,8 @@ export default function WordGen({ word, answer }) {
                     alignContent: 'center',
                     color: '#fff'}}>
             <h1 style={{ color: 'white' }} key={word.id}>{word.word}</h1>
+            
+        </div>
         </div>
     )
 }     

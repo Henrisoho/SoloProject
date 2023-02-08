@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const wordsRouter = require('./routes/words.router');
 const unusedWordsRouter = require('./routes/unusedwords.router');
+const translateRouter = require('./routes/translate.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/words', wordsRouter);
 app.use('/api/unusedwords', unusedWordsRouter);
+app.use('/api/translate', translateRouter);
 
 
 // Serve static files

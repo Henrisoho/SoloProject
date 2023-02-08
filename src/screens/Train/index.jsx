@@ -10,9 +10,26 @@ export default function Train() {
   const words = useSelector(store => store.wordsReducer)
 
   useEffect(() => {
+    dispatch({ 
+        type: 'TRANSLATE',
+        payload: { 
+            word: correctWord.word
+        }
+     });
     dispatch({ type: 'FETCH_WORDS' });
     dispatch({ type: 'FETCH_UNUSEDWORDS' });
+      
   }, [dispatch]);
+
+function filter(x) {
+    let transWord = {}
+  if (x != undefined){
+  transWord = x
+  }
+  return transWord;
+}
+
+let correctWord = filter(words.correctWord)
 
 function shuffleArray(array) {
   if (array != undefined){
@@ -30,11 +47,11 @@ const wordsArr = shuffleArray(words.testArray)
   return (
       <div>
         <div>
-          <TransWord answer={words.correctWord}/>
+          <TransWord answer={correctWord}/>
         </div>
          {wordsArr?.map((word) =>{
           return(
-            <WordGen key={word.id} word={word} answer={words.correctWord}/>
+            <WordGen key={word.id} word={word} answer={correctWord}/>
           )
         })}
         
