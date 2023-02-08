@@ -13,12 +13,11 @@ const wordsReducer = (state = [], action) => {
 }
 
 let newArr = wordsScramble(action.payload)
-console.log(newArr)
 
 const testArray = [...newArr]
-console.log(testArray)
+
 const correctWord = testArray[0]
-console.log(correctWord)
+
 
 
   switch (action.type) {

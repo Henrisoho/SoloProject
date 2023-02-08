@@ -28,21 +28,24 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
             <Link className="navLink" to="/train">
               Train
+            </Link>
+
+            <Link className="navLink" to="/movie">
+               Movie
+            </Link>
+
+            <Link className="navLink" to="/movie">
+               Complete
+            </Link>
+             <Link className="navLink" to="/settings">
+               Settings
             </Link>
 
             <LogOutButton className="navLink" />
           </>
         )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import useReduxStore from '../../hooks/useReduxStore';
 import WordGen from './component';
 
 export default function TransWord({ word, answer }) {
+const dispatch = useDispatch();
 
 function filter(x) {
     let transWord = {}
@@ -12,8 +13,18 @@ function filter(x) {
   }
   return transWord;
 }
-
 let filteredWord = filter(answer)
+
+
+console.log(filteredWord.word)
+ useEffect(() => {
+    dispatch({ 
+        type: 'TRANSLATE',
+        payload: filteredWord.word
+     });
+  }, [dispatch]);
+
+
 
     return(
         <div>
@@ -21,3 +32,4 @@ let filteredWord = filter(answer)
         </div>
     )
 }
+

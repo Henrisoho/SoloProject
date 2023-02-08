@@ -22,6 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Train from '../../screens/Train/index';
 
 import './App.css';
+import Movies from '../../screens/Movies';
+import Settings from '../../screens/Settings';
 
 
 function App() {
@@ -45,10 +47,19 @@ function App() {
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
-            path="/about"
+            path="/movie"
           >
-            <AboutPage />
+            <Movies />
           </Route>
+
+              <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/settings"
+          >
+            <Settings />
+          </Route>
+
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

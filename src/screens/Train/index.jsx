@@ -8,7 +8,7 @@ export default function Train() {
   const dispatch = useDispatch();
   const store = useReduxStore();
   const words = useSelector(store => store.wordsReducer)
-  console.log('this is from the store', words)
+
   useEffect(() => {
     dispatch({ type: 'FETCH_WORDS' });
     dispatch({ type: 'FETCH_UNUSEDWORDS' });
