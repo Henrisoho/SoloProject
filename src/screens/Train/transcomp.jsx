@@ -6,6 +6,7 @@ import WordGen from './component';
 export default function TransWord({ word, answer }) {
 const dispatch = useDispatch();
 const displayWord = useSelector(store => store.translateReducer)
+  const words = useSelector(store => store.wordsReducer)
 console.log('response from the set word reducer', displayWord)
 
 function filter(x) {
@@ -16,12 +17,18 @@ function filter(x) {
   return transWord;
 }
 
-let filteredWord = filter(answer)
+
+let filteredWord = filter(words.correctWord.word)
 
 
-console.log(filteredWord.word)
+console.log(filteredWord)
  useEffect(() => {
-  
+  dispatch({
+        type: 'TRANSLATE',
+        payload: {
+          word: 'pot',
+        }
+      })
   }, []);
 
 

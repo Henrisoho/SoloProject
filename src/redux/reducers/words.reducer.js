@@ -1,5 +1,7 @@
+  import { useDispatch, useSelector } from 'react-redux';
+ 
+ 
 const wordsReducer = (state = [], action) => {
-
 
   function wordsScramble(arr){
   let tenWords = []
