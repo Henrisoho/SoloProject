@@ -12,6 +12,8 @@ const userRouter = require('./routes/user.router');
 const wordsRouter = require('./routes/words.router');
 const unusedWordsRouter = require('./routes/unusedwords.router');
 const translateRouter = require('./routes/translate.router');
+const completeRouter = require('./routes/complete.router');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/words', wordsRouter);
 app.use('/api/unusedwords', unusedWordsRouter);
 app.use('/api/translate', translateRouter);
-
+app.use('/api/complete', completeRouter);
 
 // Serve static files
 app.use(express.static('build'));

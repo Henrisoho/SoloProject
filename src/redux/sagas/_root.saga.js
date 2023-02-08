@@ -4,6 +4,7 @@ import registrationSaga from './registration.saga';
 import translateSaga from './translate.saga';
 import userSaga from './user.saga';
 import wordsSaga from './words.saga';
+import completeSaga from './complete.saga';
 
 
 // rootSaga is the primary saga.
@@ -19,6 +20,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     wordsSaga(),
-    translateSaga()
+    translateSaga(),
+    completeSaga()
   ]);
 }

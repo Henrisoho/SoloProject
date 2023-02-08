@@ -24,6 +24,7 @@ import Train from '../../screens/Train/index';
 import './App.css';
 import Movies from '../../screens/Movies';
 import Settings from '../../screens/Settings';
+import Complete from '../../screens/Complete';
 
 
 function App() {
@@ -86,6 +87,14 @@ function App() {
             path="/train"
           >
             <Train />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/complete"
+          >
+            <Complete />
           </ProtectedRoute>
 
           <Route
