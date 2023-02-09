@@ -4,6 +4,7 @@ import user from './user.reducer';
 import wordsReducer from './words.reducer';
 import translateReducer from './translate.reducer';
 import completeReducer from './complete.reducer';
+import correctReducer from './correct.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   wordsReducer,
    translateReducer,
    completeReducer,
+   correctReducer,
   // will have an id and username if someone is logged in
 });
 

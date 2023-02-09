@@ -19,12 +19,13 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import Train from '../../screens/Train/index';
+
 
 import './App.css';
 import Movies from '../../screens/Movies';
 import Settings from '../../screens/Settings';
 import Complete from '../../screens/Complete';
+import TrainParent from '../../screens/Train/parent';
 
 
 function App() {
@@ -86,7 +87,7 @@ function App() {
             exact
             path="/train"
           >
-            <Train />
+            <TrainParent />
           </ProtectedRoute>
 
           <ProtectedRoute
