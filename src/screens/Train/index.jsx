@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import WordGen from './component';
-import Continue from './continue';
+
 import TransWord from './transcomp';
 
 export default function Train({isGlobalCorrect, setIsGlobalCorrect}) {
@@ -50,12 +50,6 @@ export default function Train({isGlobalCorrect, setIsGlobalCorrect}) {
               />
             )
           })}
-        </div>
-        <div>
-          <Continue 
-          isGlobalCorrect={isGlobalCorrect} 
-          setIsGlobalCorrect={setIsGlobalCorrect}
-          />
         </div>
       </>
     );

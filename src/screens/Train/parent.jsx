@@ -12,7 +12,6 @@ const [isGlobalCorrect, setIsGlobalCorrect] = useState(null);
             <Train isGlobalCorrect={isGlobalCorrect} setIsGlobalCorrect={setIsGlobalCorrect} />
         </div>
         <div>
-            <Continue/>
         </div>
         </div>
       </>
