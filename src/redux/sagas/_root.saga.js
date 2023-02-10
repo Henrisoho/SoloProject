@@ -5,6 +5,7 @@ import translateSaga from './translate.saga';
 import userSaga from './user.saga';
 import wordsSaga from './words.saga';
 import completeSaga from './complete.saga';
+import shuffleDelegateSaga from './shuffledelegate.saga';
 
 
 // rootSaga is the primary saga.
@@ -21,6 +22,7 @@ export default function* rootSaga() {
     userSaga(),
     wordsSaga(),
     translateSaga(),
-    completeSaga()
+    completeSaga(),
+    shuffleDelegateSaga()
   ]);
 }

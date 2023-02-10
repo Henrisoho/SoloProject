@@ -1,28 +1,27 @@
 import { Button } from '@mui/material'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom';
+import Train from './index';
 
-export default function Continue({id, answer}) {
+export default function Continue() {
+const history = useHistory();
+const dispatch = useDispatch()
+const trueFalse = useSelector(store => store.correctIncorrectReducerr)
 
 
-console.log('id:', id);
-console.log('datatype of id:', typeof id);
-console.log('answer:', answer);
-console.log('datatype of answer:', typeof answer);
-
-
-if(id === answer && id != undefined){
-    return(
-        <button>Next</button>
-    )
-}else if(id != answer){
-    return(
-        <h1>try again</h1>
-    )
-}else if( id  === undefined){
-    return(
-        <div></div>
-    )
+const onNext = () => {
+    history.push('/train')
+    dispatch({ type: 'FETCH_WORDS' });
 }
+
+// if (correct) {
+    console.log('F')
+    return (
+        <div>
+            <button onClick={onNext}>Next</button>
+        </div>
+    )
+// }
 
 }
