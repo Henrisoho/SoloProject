@@ -1,19 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-export default function TransWord() {
-    const displayWord = useSelector(store => store.translateReducer)
+export default function TransWord({transWord}) {
 
-    if (displayWord != undefined) {
-        return (
+        return(
             <div>
-                <h1>{displayWord.transWord}</h1>
+                <h1>{transWord}</h1>
             </div>
         )
-    } else {
-        return (
-            <h1>Loading</h1>
-        )
-    }
 }
 

@@ -1,9 +1,9 @@
-const correctReducer = (state = [], action) => {
-    switch (action.type) {
-    case 'ADD_PIZZA_TO_ORDER':
-        return [...state, action.payload]
-      default:
-        return state;
-    }
+const correctIncorrectReducer = (state = 0, action) => {
+  switch (action.type) {
+    case 'SET_CORRECT_INCORRECT':
+      return action.payload;
+    default:
+      return null;
+  }
 }
-export default correctReducer;
+export default correctIncorrectReducer;

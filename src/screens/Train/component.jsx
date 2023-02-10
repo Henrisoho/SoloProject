@@ -1,33 +1,28 @@
 import React from 'react'
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import wordsReducer from '../../redux/reducers/words.reducer';
 import Continue from './continue';
 
 export default function WordGen({ word, answer}) {
     const [isCorrect, setIsCorrect]= useState(null)
+    const dispatch = useDispatch()
+   const trueFalse = useSelector(store => store.correctIncorrectReducerr)
 
-const scrubing = (x) =>{
-    if(x != undefined){
-        return x
-    } else{
-        return 1
-    }
-}
 
-const valueForContinue = scrubing(word.id)
-const answerForContinue = scrubing(answer.id)
-
-    const handleCorrect = () => {
-        if (word.id === answer.id) {
-            setIsCorrect(1);
-        } else if (word.id != answer.id) {
-            setIsCorrect(0)
-        } else {
-            setIsCorrect(null)
+    const handleCorrect = (event) => {
+     dispatch({
+        type: 'CORRECT_INCORRECT_LOGIC',
+        payload: {
+          wordId: word.id,
+          answerId: answer.id
         }
-        return word.id
+      })
     }
-if(word && answer != undefined){
+
+
+if(word.id && answer.id){
     if (isCorrect == false) {
         return (
             <div key={word.id} 
@@ -43,9 +38,6 @@ if(word && answer != undefined){
                 color: '#fff'
             }}>
                 <h1 key={word.id}>{word.word}</h1>
-            <div hidden>
-                <Continue id={word.id} answer={answerForContinue}/>
-            </div>
             </div>
             
         )
@@ -64,9 +56,6 @@ if(word && answer != undefined){
                 }}>
                     <h1 onClick={() => {handleCorrect()}} style={{ color: 'white' }} key={word.id}>{word.word}</h1>
                 </div>
-                <div hidden>
-                <Continue id={word.id} answer={answerForContinue}/>
-            </div>
         </div>
         )
     } else if (isCorrect == null) {
@@ -84,22 +73,18 @@ if(word && answer != undefined){
                 }}>
                     <h1 style={{ color: 'black' }} key={word.id}>{word.word}</h1>
                 </div>
-                <div hidden>
-                <Continue id={word.id}/>
-            </div>
             </div>
         )
     }else{
         return(
             <>
             <h1>Loading</h1>
-            
             </>
         )
     }
 }else{
     return(
-        <div></div>
+        <div>fffff</div>
     )
 }
     

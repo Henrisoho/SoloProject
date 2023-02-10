@@ -17,7 +17,7 @@ function* translate(action) {
 
         console.log('translate saga response:', transWord.data);
         yield put({ 
-          type: 'SET_TRANSLATE', 
+          type: 'SET_SHUFFLE_AND_DELEGATE', 
           payload:{
             transWord: transWord.data,
             Words: words

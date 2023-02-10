@@ -10,44 +10,36 @@ export default function Train({isGlobalCorrect, setIsGlobalCorrect}) {
 
   const store = useReduxStore();
   const words = useSelector(store => store.translateReducer)
+  console.log(words)
+
+const translatedWord = words.transWord
+const arrayOfWords = words.wordsArr
+const correctWord = words.answer
+
+  console.log('this is the correct word translated', translatedWord)
+  console.log('this is the array of words',arrayOfWords)
+  console.log('this is the correct word', correctWord)
 
 
-  if (words != undefined) {
-    const answer = words.Words[0]
-    console.log(answer)
-    console.log(words.Words)
-  
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
 
-    const wordsArr = shuffleArray(words.Words)
     return (
       <>
         <div>
           <div>
-            <TransWord />
+            <TransWord transWord = {translatedWord} />
           </div>
-          {wordsArr?.map((word) => {
+          {arrayOfWords?.map((word) => {
             return (
               <WordGen 
               key={word.id} 
               word={word} 
-              answer={answer}
+              answer={correctWord}
               />
             )
-          })}
+          })} 
         </div>
-        <Continue/>
+        <Continue answer={correctWord}/>
       </>
     );
-  } else {
-    return (
-      <h1>Loading</h1>
-    )
-  }
-}
+  } 
+
