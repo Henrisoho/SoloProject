@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import useReduxStore from '../../hooks/useReduxStore';
-import WordGen from './component';
+import { useSelector } from 'react-redux';
 
-export default function TransWord({ word, answer }) {
-    const dispatch = useDispatch();
+export default function TransWord() {
     const displayWord = useSelector(store => store.translateReducer)
-    const words = useSelector(store => store.wordsReducer)
-    console.log('response from the set word reducer', displayWord)
 
     if (displayWord != undefined) {
         return (

@@ -9,13 +9,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -25,7 +22,8 @@ import './App.css';
 import Movies from '../../screens/Movies';
 import Settings from '../../screens/Settings';
 import Complete from '../../screens/Complete';
-import TrainParent from '../../screens/Train/parent';
+import Train from '../../screens/Train/index';
+
 
 
 function App() {
@@ -75,19 +73,13 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
+     
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/train"
           >
-            <TrainParent />
+            <Train/>
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -145,7 +137,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+  
       </div>
     </Router>
   );

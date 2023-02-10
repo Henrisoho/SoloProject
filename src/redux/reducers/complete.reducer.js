@@ -1,4 +1,5 @@
 const completeReducer = (state = null, action) => {
+    //
   console.log(action.payload)
   switch (action.type) {
     case 'SET_COMPLETE':
@@ -7,7 +8,6 @@ const completeReducer = (state = null, action) => {
       return [];
     default:
       return state;
-      
   }
 };
 

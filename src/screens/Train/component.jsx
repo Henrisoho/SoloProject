@@ -1,11 +1,23 @@
 import React from 'react'
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
 import Continue from './continue';
 
-export default function WordGen({ word, answer, setIsGlobalCorrect}) {
+export default function WordGen({ word, answer}) {
     const [isCorrect, setIsCorrect]= useState(null)
 
-    const handleCorrect = (event) => {
+const scrubing = (x) =>{
+    if(x != undefined){
+        return x
+    } else{
+        return 1
+    }
+}
+
+const valueForContinue = scrubing(word.id)
+const answerForContinue = scrubing(answer.id)
+
+    const handleCorrect = () => {
         if (word.id === answer.id) {
             setIsCorrect(1);
         } else if (word.id != answer.id) {
@@ -13,13 +25,9 @@ export default function WordGen({ word, answer, setIsGlobalCorrect}) {
         } else {
             setIsCorrect(null)
         }
+        return word.id
     }
-
-    const handleContinue = (event) =>{
-        event.preventDefualt()
-
-    }
-
+if(word && answer != undefined){
     if (isCorrect == false) {
         return (
             <div key={word.id} 
@@ -35,12 +43,16 @@ export default function WordGen({ word, answer, setIsGlobalCorrect}) {
                 color: '#fff'
             }}>
                 <h1 key={word.id}>{word.word}</h1>
+            <div hidden>
+                <Continue id={word.id} answer={answerForContinue}/>
             </div>
+            </div>
+            
         )
     } else if (isCorrect == true) {
         return (
             <div>
-                <div key={word.id} onClick={handleCorrect} onChange={handleContinue} style={{
+                <div key={word.id}  style={{
                     margin: 10,
                     alignItems: 'center',
                     height: '80px',
@@ -50,8 +62,11 @@ export default function WordGen({ word, answer, setIsGlobalCorrect}) {
                     alignContent: 'center',
                     color: '#fff'
                 }}>
-                    <h1 style={{ color: 'white' }} key={word.id}>{word.word}</h1>
+                    <h1 onClick={() => {handleCorrect()}} style={{ color: 'white' }} key={word.id}>{word.word}</h1>
                 </div>
+                <div hidden>
+                <Continue id={word.id} answer={answerForContinue}/>
+            </div>
         </div>
         )
     } else if (isCorrect == null) {
@@ -69,6 +84,9 @@ export default function WordGen({ word, answer, setIsGlobalCorrect}) {
                 }}>
                     <h1 style={{ color: 'black' }} key={word.id}>{word.word}</h1>
                 </div>
+                <div hidden>
+                <Continue id={word.id}/>
+            </div>
             </div>
         )
     }else{
@@ -79,7 +97,11 @@ export default function WordGen({ word, answer, setIsGlobalCorrect}) {
             </>
         )
     }
-
+}else{
+    return(
+        <div></div>
+    )
+}
     
 
 }

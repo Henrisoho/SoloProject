@@ -1,14 +1,41 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+//When clicked fetch words gets the 4 words from the data base for the
+// flashcards on the train page so you can begin the game
+  const handleStart = (event) => {
+    event.preventDefault();
+    dispatch({ type: 'FETCH_WORDS' });
+    history.push('/train')
+  }
+
+  //gets user information
   const user = useSelector((store) => store.user);
+
+  
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div>
+        <h3>Are you ready to train?</h3>
+        <Button onClick={handleStart} variant="contained">LETS GO</Button>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
       <LogOutButton className="btn" />
     </div>
   );

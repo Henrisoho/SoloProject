@@ -9,7 +9,6 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const wordsRouter = require('./routes/words.router');
 const unusedWordsRouter = require('./routes/unusedwords.router');
 const translateRouter = require('./routes/translate.router');
 const completeRouter = require('./routes/complete.router');
@@ -27,7 +26,6 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/words', wordsRouter);
 app.use('/api/unusedwords', unusedWordsRouter);
 app.use('/api/translate', translateRouter);
 app.use('/api/complete', completeRouter);
