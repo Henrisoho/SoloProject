@@ -9,6 +9,7 @@ import shuffleDelegateSaga from './shuffledelegate.saga';
 import correctIncorrectSaga from './correctIncorrect.saga';
 import languagesSaga from './languages.saga';
 import chosenLangSaga from './chosenlang.saga';
+import userLanguagesSaga from './userlanguages.saga';
 
 
 // rootSaga is the primary saga.
@@ -29,6 +30,7 @@ export default function* rootSaga() {
     shuffleDelegateSaga(),
     correctIncorrectSaga(),
     languagesSaga(),
-    chosenLangSaga()
+    chosenLangSaga(),
+    userLanguagesSaga()
   ]);
 }

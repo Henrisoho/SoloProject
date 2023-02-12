@@ -17,6 +17,7 @@ console.log(`i work here are the values i recieve ${req.query.userId} , ${req.qu
   const sqlValues = [user_id, language_id]
   pool.query(sqlQuery,sqlValues)
   .then((dbres)=>{
+    console.log(dbres)
     res.send(dbres.data);
   })
   .catch((error)=>{

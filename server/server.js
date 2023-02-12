@@ -14,6 +14,8 @@ const translateRouter = require('./routes/translate.router');
 const completeRouter = require('./routes/complete.router');
 const languagesRouter = require('./routes/languages.router');
 const chosenLangRouter = require('./routes/chosenlang.router');
+const userLangRouter = require('./routes/userLang.router');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,6 +34,7 @@ app.use('/api/translate', translateRouter);
 app.use('/api/complete', completeRouter);
 app.use('/api/languages', languagesRouter)
 app.use('/api/chosenlang', chosenLangRouter)
+app.use('/api/userLang', userLangRouter)
 // Serve static files
 app.use(express.static('build'));
 

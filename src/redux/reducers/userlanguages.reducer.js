@@ -1,4 +1,4 @@
-const userLanguages = (state = [], action) => {
+const userLanguagesReducer = (state = [], action) => {
     console.log(`userLanguages payload ${action.paylaod}`)
   switch (action.type) {
     case 'SET_USER_LANGUAGES':
@@ -12,4 +12,4 @@ const userLanguages = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default userLanguages;
+export default userLanguagesReducer;
