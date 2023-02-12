@@ -1,17 +1,29 @@
+
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* correctIncorrectLogic(action) {
     try {
-        const response = action.payload
-        console.log('this is the response', response)
+        const res = action.payload
+        const wordId = res.wordId
+
+        const trueFalse =() =>{
+        if (res.answerId === res.wordId){
+            return true
+        }else{
+            return false
+        }
+        }
+         
 
         yield put({
             type: 'SET_CORRECT_INCORRECT',
-            payload: response
+            payload: {
+                trueFalse: trueFalse(),
+                wordId: wordId
+                }
         });
         
     } catch (error) {
-        console.log('response from correctIncorrect saga', action.payload)
         console.log('correctIncorrect request failed', error);
     }
 }

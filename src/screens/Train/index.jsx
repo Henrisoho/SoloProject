@@ -16,9 +16,9 @@ const translatedWord = words.transWord
 const arrayOfWords = words.wordsArr
 const correctWord = words.answer
 
-  console.log('this is the correct word translated', translatedWord)
-  console.log('this is the array of words',arrayOfWords)
-  console.log('this is the correct word', correctWord)
+  // console.log('this is the correct word translated', translatedWord)
+  // console.log('this is the array of words',arrayOfWords)
+  // console.log('this is the correct word', correctWord)
 
 
 

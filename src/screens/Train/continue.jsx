@@ -7,7 +7,7 @@ import Train from './index';
 export default function Continue() {
 const history = useHistory();
 const dispatch = useDispatch()
-const trueFalse = useSelector(store => store.correctIncorrectReducerr)
+const trueFalse = useSelector(store => store.correctIncorrectReducer)
 
 
 const onNext = () => {
@@ -15,13 +15,26 @@ const onNext = () => {
     dispatch({ type: 'FETCH_WORDS' });
 }
 
-// if (correct) {
+if(trueFalse){
+if (trueFalse.trueFalse === true) {
     console.log('F')
     return (
         <div>
-            <button onClick={onNext}>Next</button>
+            <Button variant="contained" onClick={onNext}>Next</Button>
         </div>
     )
-// }
+}else if (trueFalse.trueFalse === false) {
+    console.log('F')
+    return (
+        <div>
+            <h1>try again</h1>
+        </div>
+    )
+}
+}else{
+    return(
+        <div></div>
+    )
+}
 
 }

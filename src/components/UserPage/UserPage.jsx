@@ -18,6 +18,7 @@ function UserPage() {
 
   //gets user information
   const user = useSelector((store) => store.user);
+    const languages = useSelector((store) => store.userLanguages);
 
   
   return (

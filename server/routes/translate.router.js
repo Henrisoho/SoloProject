@@ -12,7 +12,7 @@ console.log(string)
 const encodedParams = new URLSearchParams();
 encodedParams.append("q", string);
 encodedParams.append("target", "fr");
-encodedParams.append("source", "en");
+encodedParams.append("source", "es");
 
 const options = {
   method: 'POST',

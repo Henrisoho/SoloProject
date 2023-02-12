@@ -2,7 +2,7 @@
  
  
 const wordsReducer = (state = [], action) => {
- console.log('words reducer', action.payload)
+//  console.log('words reducer', action.payload)
   switch (action.type) {
     case 'SET_WORDS':
       return action.payload;
