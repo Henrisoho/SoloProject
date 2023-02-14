@@ -1,5 +1,5 @@
 const langPickedReducer = (state = [], action) => {
-    console.log('langPickedreducer', action.payload)
+    // console.log('langPickedreducer', action.payload)
 
   switch (action.type) {
     case 'SET_LANGUAGE_PICKED':

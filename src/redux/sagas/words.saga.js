@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchWords(action) {
-  console.log(action.payload.lang)
+  // console.log(action.payload.lang)
   const lang = action.payload.lang
   try {
     const config = {

@@ -23,6 +23,8 @@ import Movies from '../../screens/Movies';
 import Settings from '../../screens/Settings';
 import Complete from '../../screens/Complete';
 import Train from '../../screens/Train/index';
+import PreTest from '../../screens/Train/pretestprac';
+import Test from '../../screens/Train/test';
 
 
 
@@ -80,6 +82,22 @@ function App() {
             path="/train"
           >
             <Train/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/pretest"
+          >
+            <PreTest/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/test"
+          >
+            <Test/>
           </ProtectedRoute>
 
           <ProtectedRoute

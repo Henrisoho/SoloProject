@@ -5,7 +5,7 @@ function* chosenLang(action) {
   const userId = action.payload.userId
   const langId = action.payload.id
   
-    console.log(userId, langId)
+    // console.log(userId, langId)
     if(userId, langId){
     try{
         const chosenLang = yield axios({
@@ -17,13 +17,13 @@ function* chosenLang(action) {
             }
         })
     
-        console.log('chosenLang saga response:', chosenLang.data);
+        // console.log('chosenLang saga response:', chosenLang.data);
         yield put({ 
           type: 'SET_USER_LANGUAGES',
           payload: chosenLang.data
         });
     } catch {
-      console.log('chosenLang saga response:', chosenLang.data)
+      // console.log('chosenLang saga response:', chosenLang.data)
     }
     }
 }

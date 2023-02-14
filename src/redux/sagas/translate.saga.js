@@ -7,13 +7,8 @@ function* translate(action) {
   const word = action.payload.words[0]
   const words = action.payload.words
 
-
-console.log(word)
-console.log(lang)
-console.log(words)
-
   if(word != undefined){
-    console.log(word.word)
+    // console.log(word.word)
     try{
         const transWord = yield axios({
             method: 'POST',
@@ -24,7 +19,6 @@ console.log(words)
             }
         })
 
-        console.log('translate saga response:', transWord.data);
         yield put({ 
           type: 'SET_SHUFFLE_AND_DELEGATE', 
           payload:{

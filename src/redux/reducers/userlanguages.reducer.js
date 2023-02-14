@@ -1,5 +1,5 @@
 const userLanguagesReducer = (state = [], action) => {
-    console.log(`userLanguages payload ${action.paylaod}`)
+    // console.log(`userLanguages payload ${action.paylaod}`)
   switch (action.type) {
     case 'SET_USER_LANGUAGES':
       return action.payload;

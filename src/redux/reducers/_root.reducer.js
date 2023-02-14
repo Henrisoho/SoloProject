@@ -8,6 +8,7 @@ import correctIncorrectReducer from './correct.reducer';
 import languagesReducer from './languages.reducer';
 import userLanguagesReducer from './userlanguages.reducer';
 import langPickedReducer from './langpicked.reducer';
+import practiceCompleteReducer from './practicecomplete.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
    correctIncorrectReducer,
    languagesReducer,
    userLanguagesReducer,
-   langPickedReducer
+   langPickedReducer,
+   practiceCompleteReducer
   // will have an id and username if someone is logged in
 });
 

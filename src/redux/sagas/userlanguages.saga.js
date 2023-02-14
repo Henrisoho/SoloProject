@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 
 function* fetchUserLanguages(action) {
-  console.log(action.payload.userId)
+  // console.log(action.payload.userId)
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },

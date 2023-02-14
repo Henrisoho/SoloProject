@@ -34,11 +34,12 @@ const correctWord = words.answer
               key={word.id} 
               word={word} 
               answer={correctWord}
+              transWord = {translatedWord}
               />
             )
           })} 
         </div>
-        <Continue answer={correctWord}/>
+        <Continue answer={correctWord} transWord = {translatedWord}/>
       </>
     );
   } 

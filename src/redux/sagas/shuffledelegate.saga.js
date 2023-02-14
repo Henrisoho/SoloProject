@@ -14,7 +14,7 @@ function* shuffleDelegateWords(action) {
             const answer = words.Words[0]
             const transWord = words.transWord
             const wordsArr = shuffleArray(words.Words)
-            console.log(answer)
+
 
 
         yield put({
@@ -27,7 +27,6 @@ function* shuffleDelegateWords(action) {
         });
         
     } catch (error) {
-        console.log('response from shuffle saga', action.payload)
         console.log('WORDS get request failed', error);
     }
 }
