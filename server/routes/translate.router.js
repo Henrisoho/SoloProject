@@ -7,11 +7,13 @@ const router = express.Router()
 const axios = require('axios');
 
 router.post('/', rejectUnauthenticated, (req, res) =>{
+const lang = (req.query.lang)
+console.log(lang)
 const string = (req.query.word)
 console.log(string)
 const encodedParams = new URLSearchParams();
 encodedParams.append("q", string);
-encodedParams.append("target", "fr");
+encodedParams.append("target", lang);
 encodedParams.append("source", "es");
 
 const options = {

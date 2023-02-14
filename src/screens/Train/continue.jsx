@@ -8,11 +8,18 @@ export default function Continue() {
 const history = useHistory();
 const dispatch = useDispatch()
 const trueFalse = useSelector(store => store.correctIncorrectReducer)
+const lang = useSelector((store) => store.langPickedReducer)
 
-
-const onNext = () => {
-    history.push('/train')
-    dispatch({ type: 'FETCH_WORDS' });
+const onNext = (event) => {
+    console.log(lang[0].desig)
+    event.preventDefault()
+    history.replace('/train')
+    dispatch({ 
+        type: 'FETCH_WORDS',
+        payload: { 
+            lang: lang[0].desig
+            }
+     });
 }
 
 if(trueFalse){

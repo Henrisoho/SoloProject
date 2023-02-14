@@ -31,6 +31,6 @@ export default function* rootSaga() {
     correctIncorrectSaga(),
     languagesSaga(),
     chosenLangSaga(),
-    userLanguagesSaga()
+    userLanguagesSaga(),
   ]);
 }

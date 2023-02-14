@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchWords() {
+function* fetchWords(action) {
+  console.log(action.payload.lang)
+  const lang = action.payload.lang
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
@@ -9,9 +11,15 @@ function* fetchWords() {
     };
 
     const response = yield axios.get('/api/unusedwords', config);
-    
 
-    yield put({ type: 'TRANSLATE', payload: response.data });
+
+    yield put({
+      type: 'TRANSLATE',
+      payload:{ 
+        words: response.data,
+        lang: lang
+      }
+    });
   } catch (error) {
     console.log('WORDS get request failed', error);
   }

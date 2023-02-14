@@ -14,7 +14,7 @@ function* fetchUserLanguages(action) {
     };
 
 
-    const response = yield axios.get('/api/userlanguages', config);
+    const response = yield axios.get('/api/userlang', config);
 
     yield put({ type: 'SET_USER_LANGUAGES', payload: response.data });
   } catch (error) {

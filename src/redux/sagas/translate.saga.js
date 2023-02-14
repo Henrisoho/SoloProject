@@ -1,9 +1,17 @@
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* translate(action) {
-  const word = action.payload[0]
-  const words = action.payload
+  const lang = action.payload.lang
+  const word = action.payload.words[0]
+  const words = action.payload.words
+
+
+console.log(word)
+console.log(lang)
+console.log(words)
+
   if(word != undefined){
     console.log(word.word)
     try{
@@ -11,7 +19,8 @@ function* translate(action) {
             method: 'POST',
             url: '/api/translate',
             params: {
-              word: word.word
+              word: word.word,
+              lang: lang
             }
         })
 
