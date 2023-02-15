@@ -1,0 +1,128 @@
+const SideBar = () => {
+  const [selected, setSelected] = useState(0)
+  const theme = useTheme();
+  const {onToggleMode} = useSettings()
+  console.log(theme)
+  return (
+      <Box
+        p={2}
+        sx={{
+          backgroundColor: theme.palette.background.paper,
+          boxShadow: “0px 0px 2px rgba(0, 0, 0, 0.25)“,
+          height: “100vh”,
+          width: 100
+        }}>
+        <Stack
+         direction=“column”
+         alignItems={“center”}
+         justifyContent = “space-betweem”
+         sx={{ height: “90%” }}
+         spacing={3} >
+          <Stack alignItems={“center”} spacing={4}>
+          <Box sx={{
+            backgroundColor: theme.palette.primary.main,
+            height: 64,
+            width: 64,
+            borderRadius: 1.5
+          }}>
+            <img src={Logo} />
+          </Box>
+          <Stack sx={{ width: “max-content” }} alignItems={“center”} direcrtion=“column” spacing={3}>
+            {Nav_Buttons.map((el) => (
+              el.index === selected ? (
+                <Box p={1} sx={{ backgroundColor: theme.palette.primary.main, borderRadius: 1.5 }}>
+                  <IconButton
+                    sx={{ width: “max-content”, color: theme.palette.mode === “light” ? “#fff” :theme.palette.text.primary }}
+                    key={el.index}
+                  >
+                    {el.icon}
+                  </IconButton>
+                </Box>
+              ) : (
+                <IconButton
+                  onClick={() => {
+                    setSelected(el.index)
+                  }}
+                  sx={{ width: “max-content”, color: theme.palette.mode === “light” ? “#000” :theme.palette.text.primary}}
+                  key={el.index}
+                >
+                  {el.icon}
+                </IconButton>
+              )
+            ))}
+            <Divider sx={{ width: 40 }} variant=“middle” />
+            {selected === 3 ?
+              <Box p={1} sx={{ backgroundColor: theme.palette.primary.main, borderRadius: 1.5 }}>
+                <IconButton
+                  onClick={() => {
+                    setSelected(3)
+                  }}
+                  sx={{ width: “max-content”, color: “#fff” }}
+                  >
+                  <Gear></Gear>
+                </IconButton>
+              </Box>
+              :
+              <IconButton
+              onClick={() => {
+                    setSelected(3)
+                  }}
+                  sx={{ width: “max-content”, color: theme.palette.mode === “light” ? “#000” :theme.palette.text.primary }}
+                  >
+                <Gear></Gear>
+              </IconButton>
+            }
+          </Stack>
+          </Stack>
+          </Stack>
+        <Stack spacing={3} alignItems={“center”}>
+          <AntSwitch onChange={() => {
+              onToggleMode();
+          }}
+          defaultChecked/>
+          <Avatar src={faker.image.avatar()}/>
+        </Stack>
+      
+  );
+};
+export default SideBar;
+
+
+
+
+<div className="nav">
+      <Link to="/home">
+        <h2 className="nav-title">Hermes</h2>
+      </Link>
+      <div>
+        {/* If no user is logged in, show these links */}
+        {!user.id && (
+          // If there's no user, show login/registration links
+          <Link className="navLink" to="/login">
+            Login / Register
+          </Link>
+        )}
+
+        {/* If a user is logged in, show these links */}
+        {user.id && (
+          <>
+            <Link className="navLink" to="/user">
+              Home
+            </Link>
+            
+            <Link className="navLink" to="/movie">
+               Movie
+            </Link>
+
+            <Link className="navLink" to="/complete">
+               Complete
+            </Link>
+             <Link className="navLink" to="/settings">
+               Settings
+            </Link>
+
+            <LogOutButton className="navLink" />
+          </>
+        )}
+      </div>
+    </div>
