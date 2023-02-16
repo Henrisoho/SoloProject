@@ -1,71 +1,30 @@
 import { Sidebar, Menu, MenuItem, useProSidebar, sidebarClasses, menuClasses } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
-import TaskIcon from '@mui/icons-material/Task';
-import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
-import SettingsIcon from '@mui/icons-material/Settings';
-
+import {Box, IconButton} from '@mui/material'
+import { Typography } from '@mui/material';
+import { useTheme } from '@mui/system';
+import { tokens } from "../../theme";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
 
 
 const SideBar = () => {
-  const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } = useProSidebar();
+const theme = useTheme();
+const colors = tokens(theme.palette.mode)
+
 
   return (
-    <div
-      onClick={() => collapseSidebar()}
-      style={{ display: 'flex', height: '100%' }}>
-      <Sidebar
-        defaultCollapsed collapsedWidth="70px"
-        width="170px"
-        alignItems='center'
-        backgroundColor='#FBFBF2'
-      >
-        <Menu
-        menuItemStyles={{
-          button: ({ level, active, disabled }) => {
-            // only apply styles on first level elements of the tree
-            if (level === 0)
-              return {
-                color: disabled ? '#f5d9ff' : '#1f5673',
-                backgroundColor: active ? '#F5D3C8' : undefined,
-              };
-          },
-        }}
-        >
-
-          <MenuItem
-            component={<Link to="/user" />}
-            icon={<HomeIcon fontSize="medium" />}
-          >
-            Home
-          </MenuItem>
-
-          <MenuItem
-            component={<Link to="/movie" />}
-            icon={<LocalMoviesIcon fontSize="medium" />}
-            active
-          >
-            Movie
-          </MenuItem>
-
-          <MenuItem
-            component={<Link to="/complete" />}
-            icon={<TaskIcon fontSize="medium" />}
-          >
-            Complete
-          </MenuItem>
-
-          <MenuItem
-            component={<Link to="/settings" />}
-            icon={<SettingsIcon fontSize="medium" />}
-          >
-            Settings
-          </MenuItem>
-
-        </Menu>
-      </Sidebar>
-    </div>
   );
 
 }

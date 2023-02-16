@@ -27,7 +27,7 @@ import Train from '../../screens/Train/index';
 import PreTest from '../../screens/Train/pretestprac';
 import Test from '../../screens/Train/test';
 import SideBar from '../Nav/SideBar';
-
+import TopBar from '../Nav/TopBar';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,16 +39,15 @@ function App() {
   }, [dispatch]);
 
   return (
-    <ProSidebarProvider>
+    
     <ColorModeContext.Provider value={colorMode}>
+    <ProSidebarProvider>
     <ThemeProvider theme={theme}>
-    <>
     <Router>
     <div className='app'>
     <SideBar/>
     <main className="content">
-      
-        <div>
+      <TopBar/>
           <Switch>
             <Redirect exact from="/" to="/home" />
             <ProtectedRoute exact path="/user"><UserPage /></ProtectedRoute>
@@ -66,17 +65,13 @@ function App() {
             <Route><h1>404</h1></Route>
 
           </Switch>
-        </div>
-      
     </main>
     
     </div>
     </Router>
-    </>
-    
     </ThemeProvider>
-    </ColorModeContext.Provider>
     </ProSidebarProvider>
+    </ColorModeContext.Provider>
   );
 }
 
