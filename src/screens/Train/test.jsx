@@ -24,7 +24,7 @@ export default function Test() {
         }
     }
 
-      const goNext = (e) => {np
+      const goNext = (e) => {
         e.preventDefault();
          dispatch({
                 type: 'UN_SET_TEST_RESULT'

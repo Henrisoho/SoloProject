@@ -1,12 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+
+
+
 html,
 body,
-#react-root {
+#react-root, 
+#root,
+.app,
+.content{
   height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+ background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #555;
+}
+
+.app {
+  display: flex;
+  position: relative;
 }
 
 img {
