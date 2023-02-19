@@ -1,11 +1,14 @@
-import { Button } from '@mui/material'
+import { Button, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import practiceCompleteReducer from '../../redux/reducers/practicecomplete.reducer';
 import Train from './index';
+import { ColorModeContext, tokens } from '../../components/App/theme';
 
 export default function Continue({ answer, transWord }) {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
     const history = useHistory();
     const dispatch = useDispatch()
     const trueFalse = useSelector(store => store.correctIncorrectReducer)
@@ -50,21 +53,27 @@ export default function Continue({ answer, transWord }) {
             console.log('F')
             return (
                 <div>
-                    <Button variant="contained" onClick={onNext}>Next</Button>
+                    <Button variant="contained" color="success"  onClick={onNext}>Next</Button>
                 </div>
             )
         } else if (trueFalse.trueFalse === true && completeWordsArr.length == 9) {
             console.log('F')
             return (
                 <div>
-                    <Button onClick={onTest} variant="contained">Lets Test</Button>
+                    <Button onClick={onTest} color="success" variant="contained">Lets Test</Button>
                 </div>
             )
         } else if (trueFalse.trueFalse === false) {
             console.log('F')
             return (
                 <div>
-                    <h1>try again</h1>
+                    <Typography
+                    variant="h3"
+                color={colors.redAccent[600]}
+                fontWeight="bold"
+                sx={{ m: "10px 0 0 0" }}
+                    >try again
+                    </Typography>
                 </div>
             )
         }

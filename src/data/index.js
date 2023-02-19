@@ -31,6 +31,36 @@ const Settings_Button = [
     }
 ]
 
+
+const Movies = [
+    {
+        index: 0,
+        title: 'Amelie',
+        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+    },
+    {
+        index: 1,
+        title: 'Mon Frére',
+        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+    },
+    {
+        index: 2,
+        title: 'Le Feu Follet',
+        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+    },
+    {
+        index: 3,
+        title: 'Un Petit Frére',
+        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+    },
+    {
+        index: 4,
+        title: 'The Intouchables',
+        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+    }
+
+]
+
 export {
     Nav_Buttons,
     Settings_Button

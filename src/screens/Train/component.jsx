@@ -5,8 +5,12 @@ import { useHistory } from 'react-router-dom';
 import wordsReducer from '../../redux/reducers/words.reducer';
 import Continue from './continue';
 import './component.css';
+import { Box, Typography, useTheme } from '@mui/material';
+import { ColorModeContext, tokens } from '../../components/App/theme';
 
 export default function WordGen({ word, answer }) {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
     const dispatch = useDispatch()
     const trueFalse = useSelector(store => store.correctIncorrectReducer)
 
@@ -21,65 +25,100 @@ export default function WordGen({ word, answer }) {
         })
     }
 
-    // if (trueFalse) {
-    //     if (trueFalse.trueFalse === true && trueFalse.wordId === answer.id) {
-    //         return (
-    //             <div key={trueFalse.wordId} className='correct' onClick={(e) => { handleCorrect() }}>
-    //                 <h1 key={word.id}>{word.word}</h1>
-    //             </div>
-    //         );
-    //     } else if (trueFalse.trueFalse === false && trueFalse.wordId !== answer.id) {
-    //         return (
-    //             <div key={word.id} className='incorrect'>
-    //                 <h1 key={word.id}>{word.word}</h1>
-    //             </div>
-    //         );
-    //     } else {
-    //         return (
-    //             <div key={word.id} className='null' onClick={(e) => { handleCorrect() }}>
-    //                 <h1 key={word.id}>{word.word}</h1>
-    //             </div>
-    //         );
-    //     }
-    // }else{
-    //          return (
-    //              <div key={word.id} className='null' onClick={(e)=> {handleCorrect()}}>
-    //                  <h1 key={word.id}>{word.word}</h1>
-    //              </div>
-    //          );
-    //      }
 
 
+    if (trueFalse) {
+        switch (trueFalse.trueFalse, trueFalse.wordId) {
+            case true, answer.id:
+                return (
+                    <Box 
+                    key={trueFalse.wordId} 
+                    // className='correct' 
+                    onClick={(e) => { handleCorrect() }}
+                    backgroundColor={colors.greenAccent[600]}
+                    margin='20px'
+                    padding='20px'
+                    >
+                        <Typography
+                            key={word.id}
+                            variant="h2"
+                            color={colors.grey[100]}
+                            fontWeight="bold"
+                            sx={{ m: "10px 0 0 0" }}
+                            backgroundColor='transparent'
+                        >
+                            {word.word}
+                        </Typography>
+                    </Box>
+                );
+            case false, word.id:
+                return (
+                    <Box 
+                    key={word.id} 
+                    // className='incorrect'
+                    backgroundColor={colors.redAccent[600]}
+                    margin='20px'
+                    padding='20px'
+                    >
+                        <Typography
+                            key={word.id}
+                            variant="h2"
+                            color={colors.grey[100]}
+                            fontWeight="bold"
+                            sx={{ m: "10px 0 0 0" }}
+                            backgroundColor='transparent'
+                        >
+                            {word.word}
+                        </Typography>
+                    </Box>
+                );
+            default:
+                return (
+                    <Box 
+                    key={word.id} 
+                    // className='null' 
+                    onClick={(e) => { handleCorrect() }}
+                    backgroundColor={colors.grey[600]}
+                    margin='20px'
+                    padding='20px'
+                    >
+                        <Typography
+                            key={word.id}
+                            variant="h2"
+                            color={colors.grey[100]}
+                            fontWeight="bold"
+                            sx={{ m: "10px 0 0 0" }}
+                            backgroundColor='transparent'
 
-
-        if(trueFalse){
-            switch (trueFalse.trueFalse, trueFalse.wordId) {
-        case true, answer.id:
-          return (
-                <div key={trueFalse.wordId} className='correct' onClick={(e)=> {handleCorrect()}}>
-                    <h1 key={word.id}>{word.word}</h1>
-                </div>
-            );
-        case false, word.id:
-          return (
-                <div key={word.id} className='incorrect'>
-                    <h1 key={word.id}>{word.word}</h1>
-                </div>
-            );
-        default:
-          return (
-                <div key={word.id} className='null' onClick={(e)=> {handleCorrect()}}>
-                    <h1 key={word.id}>{word.word}</h1>
-                </div>
-            );
-      }
-        }else{
-            return (
-                <div key={word.id} className='null' onClick={(e)=> {handleCorrect()}}>
-                    <h1 key={word.id}>{word.word}</h1>
-                </div>
-            );
+                        >
+                            {word.word}
+                        </Typography>
+                    </Box>
+                );
         }
+    } else {
+        return (
+            <Box 
+            key={word.id} 
+            // className='null' 
+            onClick={(e) => { handleCorrect() }}
+            backgroundColor={colors.grey[600]}
+                    margin='20px'
+                    padding='20px'
+            >
+                <Typography
+                    key={word.id}
+                    variant="h2"
+                    color={colors.grey[100]}
+                    fontWeight="bold"
+                    sx={{ m: "10px 0 0 0" }}
+                    backgroundColor='transparent'
+                >
+                    {word.word}
+                </Typography>
+            </Box>
+        );
+    }
 
 
 }

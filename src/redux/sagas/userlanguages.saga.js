@@ -3,6 +3,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 
 function* fetchUserLanguages(action) {
+  //query subtract used languages
+  //select query to reject duplicates
+  //add pop up
   // console.log(action.payload.userId)
   try {
     const config = {

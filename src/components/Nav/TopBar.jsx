@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material"
+import { Box, IconButton, useTheme, Typography } from "@mui/material"
 import { useContext } from "react"
 import { ColorModeContext, tokens } from "../App/theme"
 import { InputBase } from "@mui/material";
@@ -15,18 +15,24 @@ const TopBar = () => {
     const colorMode = useContext(ColorModeContext);
 
     return (
-        <Box display='flex' justifyContent='space-between' p={2}
+        <Box 
+        display='flex' 
+        justifyContent='space-between'
+        p={2}
+        
+        backgroundColor = {colors.primary[400]}
         >
 
             <Box
                 display='flex'
-                backgroundColor={colors.primary[400]}
                 borderRadius='3px'
             >
-                <InputBase sx={{ ml: 2, flex: 1 }} palceholder="Search" />
-                <IconButton type='button' sx={{ p: 1 }}>
-                    <SearchIcon />
-                </IconButton>
+                <Typography
+                variant="h2"
+                  color={colors.grey[100]}
+                  fontWeight="bold"
+                  sx={{ m: "10px 0 0 0" }}
+                >ORDO</Typography>
             </Box>
 
             <Box display='flex'>
