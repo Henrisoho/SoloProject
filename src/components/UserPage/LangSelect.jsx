@@ -20,7 +20,8 @@ export default function LangSelect({ languages, languageId, languageDesig }) {
       type: 'SET_LANGUAGE_PICKED',
       payload: {
         desig: languageDesig,
-        name: languages
+        name: languages,
+        id: languageId
       }
     })
   }

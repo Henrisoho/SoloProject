@@ -3,6 +3,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import TaskIcon from '@mui/icons-material/Task';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import SettingsIcon from '@mui/icons-material/Settings';
+import Unpetit from '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/UnPetit.jpg'
+import Amelie from '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie.webp'
+import Intouchables from '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Intochables.jpg'
+import Monfrere from '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/MonFrere.jpg'
+import leFeu from '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/LeFeu.webp'
 
 
 const Nav_Buttons = [
@@ -32,36 +37,37 @@ const Settings_Button = [
 ]
 
 
-const Movies = [
+const MoviesList = [
     {
         index: 0,
         title: 'Amelie',
-        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+        image: Amelie
     },
     {
         index: 1,
         title: 'Mon Frére',
-        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+        image: Monfrere
     },
     {
         index: 2,
         title: 'Le Feu Follet',
-        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+        image: leFeu
     },
     {
         index: 3,
         title: 'Un Petit Frére',
-        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+        image: Unpetit
     },
     {
         index: 4,
         title: 'The Intouchables',
-        image: '/Users/hank/Documents/SoloDolo/Hermes/src/assets/Movies/Amelie-1.jpg.webp'
+        image: Intouchables
     }
 
 ]
 
 export {
     Nav_Buttons,
-    Settings_Button
+    Settings_Button,
+    MoviesList
 }

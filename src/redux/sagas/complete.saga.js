@@ -1,16 +1,17 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { actionChannel, put, takeLatest } from 'redux-saga/effects';
 
 
-function* fetchComplete() {
+function* fetchComplete(action) {
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
+      params: action.payload
     };
 
 
-    const response = yield axios.get('/api/complete', config);
+    const response = yield axios.get('/api/complete' ,config);
 
     yield put({ type: 'SET_COMPLETE', payload: response.data });
   } catch (error) {

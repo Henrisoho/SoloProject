@@ -14,8 +14,13 @@ export default function Test() {
     const store = useReduxStore();
     const completeWordsArr = useSelector((store) => store.practiceCompleteReducer)
     const lang = useSelector((store) => store.langPickedReducer)
+    const user = useSelector((store) => store.user)
     const trueFalse = useSelector((store) => store.testReducer)
     const [guess, setNewGuess] = useState('');
+    const langPicked = lang[lang.length - 1]
+
+    console.log(langPicked.id)
+    console.log(user.id)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +28,11 @@ export default function Test() {
         if (guess === correctAnswer) {
             dispatch({
                 type: 'TEST',
-                payload: completeWordsArr[0].correctWord
+                payload: {
+                    wordId: completeWordsArr[0].correctWord.id,
+                    userId: user.id,
+                    langId: langPicked.id
+                }
             });
         }
     }
@@ -81,12 +90,18 @@ export default function Test() {
                             value={guess}
                             onChange={(event) => setNewGuess(event.target.value)}
                             required />
-                        <button>Submit</button>
+                        <Button type='submit' variant='contained' color='success'>Submit</Button>
                     </form>
                 </Box>
-                <Typography>THAT IS CORRECT!!!</Typography>
+                <Typography
+                variant="h2"
+                    color={colors.grey[100]}
+                    fontWeight="bold"
+                    sx={{ m: "10px 0 0 0" }}
+                    backgroundColor={colors.primary[400]}
+                >THAT IS CORRECT!!!</Typography>
                 <Box>
-                    <Button variant="contained" onClick={goNext}>Next</Button>
+                    <Button variant="contained" color='success' onClick={goNext}>Next</Button>
                 </Box>
             </Box>
         );
@@ -146,7 +161,7 @@ export default function Test() {
                             value={guess}
                             onChange={(event) => setNewGuess(event.target.value)}
                             required />
-                        <button>Submit</button>
+                        <Button type='submit' variant='contained' color='success'>Submit</Button>
                     </form>
                 </Box>
                 <Box>

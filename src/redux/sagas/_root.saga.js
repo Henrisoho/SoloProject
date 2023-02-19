@@ -12,6 +12,7 @@ import chosenLangSaga from './chosenlang.saga';
 import userLanguagesSaga from './userlanguages.saga';
 import practiceCompleteSaga from './practicecomplete.saga';
 import testSaga from './test.saga';
+import translatecompleteSaga from './translatecomplete.saga';
 
 
 // rootSaga is the primary saga.
@@ -35,6 +36,7 @@ export default function* rootSaga() {
     chosenLangSaga(),
     userLanguagesSaga(),
     practiceCompleteSaga(),
-    testSaga()
+    testSaga(),
+    translatecompleteSaga()
   ]);
 }

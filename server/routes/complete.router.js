@@ -4,10 +4,14 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    console.log('this is the complete router back end')
+    console.log('this is the complete router back end', req.params)
     pool
     .query(`
-    SELECT * FROM "words_finished";` )
+    SELECT A.word
+FROM word A
+INNER JOIN words_finished B ON A.id = B.word_id
+WHERE B.language_id = 1;
+;` )
     .then((results) => res.send(results.rows))
     .catch((error) => {
       console.log('Error making SELECT for shelf:', error);

@@ -57,7 +57,6 @@ function UserPage() {
   return (
 
     <Box
-      className="container"
       style={{ backgroundColor: colors.primary[400], height: '100%', alignContent: 'center', alignItems: 'center', textAlign: 'center' }}
     >
       <Stack direction="row" spacing={2}>
