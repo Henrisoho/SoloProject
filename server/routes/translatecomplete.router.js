@@ -28,7 +28,8 @@ const options = {
 };
 
 axios.request(options).then(function (response) {
-   res.send(response.data)
+    console.log(response.data.data.translations[0].translatedText)
+   res.send(response.data.data.translations[0].translatedText)
 }).catch(function (error) {
     console.error(error);
 });

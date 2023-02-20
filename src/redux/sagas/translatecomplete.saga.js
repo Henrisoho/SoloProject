@@ -18,10 +18,11 @@ function* translateComplete(action) {
               lang: lang
             }
         })
-
+        console.log(transWord.data)
         yield put({ 
           type: 'TRANSLATED_COMPLETE_WORD', 
-          payload: transWord.data});
+          payload: transWord.data
+          });
     } catch {
     }
   }

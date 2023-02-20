@@ -1,4 +1,4 @@
-const translateCompleteReducer = (state = [], action) => {
+const translateCompleteReducer = (state = 'loading', action) => {
      console.log('test reducer', action.payload)
     switch (action.type) {
         case 'TRANSLATED_COMPLETE_WORD':
